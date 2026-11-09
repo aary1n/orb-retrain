@@ -4,6 +4,8 @@ This repository trains copies of the Orb-v3 machine-learned force field from ran
 
 It is the training pipeline of a research project on what universal force fields learn inside. Training copies from scratch lets controlled changes to the training data be tested against the released model. The analysis code, the data lists and the results of probing the copies are not here; they will be released with the paper.
 
+> **What this repository is.** This is a demonstration of the training workflow: how the copies are built, launched, costed and checked. The two runs below show that the pipeline works end to end. They are not the project's findings and are not representative of them. The research results, what these models learn inside and the experiments built on that, are being written up for publication and are deliberately not released here.
+
 ## What it has run
 
 In November 2026 it trained two full-data copies (seeds 0 and 1) on the 551,578 AIMD frames of the public OMat24 1M subset:
@@ -17,7 +19,7 @@ In November 2026 it trained two full-data copies (seeds 0 and 1) on the 551,578 
 | Time and cost | about 4.4 h and $20-25 per copy |
 | Checkpoints | state dicts at 0, 25, 50, 75 and 100% of training, each followed by a full validation and clean-test evaluation |
 
-### Results of the two runs
+### Pipeline check: the two runs
 
 Mean absolute errors at the end of training (step 62,000), against the released `orb-v3-conservative-inf-omat` evaluated by `modal_app/ref_eval.py` on the same rows. "AIMD" rows are the molecular-dynamics frames; "all" adds the rattled frames. The clean test set drops the 34 starting crystals shared with training.
 
