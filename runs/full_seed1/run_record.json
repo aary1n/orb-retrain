@@ -1,0 +1,51 @@
+{
+ "run_id": "full_seed1",
+ "chunks": [
+  {
+   "chunk": 0,
+   "start_utc": "2026-11-03T19:06:30Z",
+   "gpu": "NVIDIA H100 80GB HBM3",
+   "torch": "2.6.0+cu124",
+   "code_sha256": {
+    "common": "559db18c43f299f7055977b836b3d50e9a034d4dadbec08530c99f25210606c8",
+    "dataset_lmdb": "e77305328a9f05774f491e61d3df1ae4bf37f57d612036eaa8dceedefc13f633",
+    "train_job": "8b142d695f67c98762dc04a07701e3491d7ff81e80220a97f98131ba47adb8be",
+    "plan_constants": "b0e156d964d907d02aaf514247329063bb22a334f353af31e5967770b446a50f",
+    "train_app": "39e6ff7821d94c98cb5bc4bde420d87779b6690bf070dd58ccff0091b6201c44"
+   },
+   "pip_freeze_sha256": "dc06efdb06bd382c7c99b331852d54c8a629d0809c88848707497787db9a61df",
+   "copy_s": 2.2585384845733643,
+   "copy_bytes": 2011598848,
+   "start_step": 0,
+   "latest_sha256": "b486ec58df1a3c14e1d2261c683ab7ae4f15f48a7dded62946d7e995cb1f77ff",
+   "end_utc": "2026-11-03T23:30:15Z",
+   "end_step": 62000,
+   "state": "done",
+   "reason": "all steps done",
+   "oom_skips": 0
+  }
+ ],
+ "start_fingerprint": {
+  "file": "ckpt/ckpt_step000000.pt",
+  "tensor_sha256": "23216bf54139a7e79eb903e87a75cd974e640a894483c80fc85b37be7206dbec",
+  "file_sha256": "f6d2fdf91390a45ab669c569bafdf0ff64b6cce3fd7e3316072fcfc7c38f1b3b"
+ },
+ "checkpoints": {
+  "15500": {
+   "file": "ckpt/ckpt_025pct_step015500.pt",
+   "file_sha256": "75670a0e89827a37103773845543043ff7932244058cc52b6086e9e0ee08329b"
+  },
+  "31000": {
+   "file": "ckpt/ckpt_050pct_step031000.pt",
+   "file_sha256": "352de86529cd35998c935d2a1ec57cdd1d94d26bfa14692a53a5ee0871f8d791"
+  },
+  "46500": {
+   "file": "ckpt/ckpt_075pct_step046500.pt",
+   "file_sha256": "19ebb6423dfaa361a071e7b4cf7a5a12bf1b08b3d509e2334cc15a3ab98d4a6d"
+  },
+  "62000": {
+   "file": "ckpt/ckpt_100pct_step062000.pt",
+   "file_sha256": "2ffc04f7018d44cd0460a587aa65109749edd407dd2db19186a4a513e0d60299"
+  }
+ }
+}

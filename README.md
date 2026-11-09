@@ -2,7 +2,7 @@
 
 This repository trains copies of the Orb-v3 machine-learned force field from random weights on [Modal](https://modal.com) GPUs, with a spend ledger that refuses any job that would break a dollar cap.
 
-It is the training pipeline of a research project on what universal force fields learn inside. Training copies from scratch lets controlled changes to the training data be tested against the released model. The analysis code, the data lists and the results are not here; they will be released with the paper.
+It is the training pipeline of a research project on what universal force fields learn inside. Training copies from scratch lets controlled changes to the training data be tested against the released model. The analysis code, the data lists and the results of probing the copies are not here; they will be released with the paper.
 
 ## What it has run
 
@@ -17,6 +17,26 @@ In November 2026 it trained two full-data copies (seeds 0 and 1) on the 551,578 
 | Time and cost | about 4.4 h and $20-25 per copy |
 | Checkpoints | state dicts at 0, 25, 50, 75 and 100% of training, each followed by a full validation and clean-test evaluation |
 
+### Results of the two runs
+
+Mean absolute errors at the end of training (step 62,000), against the released `orb-v3-conservative-inf-omat` evaluated by `modal_app/ref_eval.py` on the same rows. "AIMD" rows are the molecular-dynamics frames; "all" adds the rattled frames. The clean test set drops the 34 starting crystals shared with training.
+
+| Set | Rows | Energy (meV/atom): seed 0 / seed 1 / released | Forces (meV/Å): seed 0 / seed 1 / released |
+| --- | --- | --- | --- |
+| Validation, AIMD | 58,845 | 39.1 / 39.4 / 8.1 | 164.2 / 164.1 / 60.8 |
+| Validation, all | 107,732 | 54.6 / 53.0 / 15.1 | 211.0 / 211.6 / 77.6 |
+| Clean test, AIMD | 29,678 | 46.4 / 47.4 / 12.0 | 165.3 / 164.5 / 60.6 |
+| Clean test, all | 53,687 | 65.2 / 63.7 / 22.6 | 212.5 / 212.9 / 79.8 |
+
+The copies trained on about 1% of the frames the released model saw in its final stage (551,578 of 55.4 million AIMD frames) and skip its pretraining stage, so they are about 2.7 times worse on forces. That is expected; the copies exist to compare training sets against each other under one recipe, and the two seeds agree closely. Errors were still falling at the end of both runs.
+
+Seed 1 ran in one go, with no pre-emption, out-of-memory skip or NaN, at 408 structures per second, and cost $20.30. Seed 0 was pre-empted once and resumed from its 25% checkpoint ($24.93 including the lost attempt). The spend ledger booked $47.73 in all: the two runs plus the reference evaluation and small test jobs.
+
+Per-checkpoint metrics, training curves and seed 1's run record (code hashes and checkpoint sha256s) are in [`runs/`](runs/):
+
+![Seed 1 training curves](runs/full_seed1/loss_curve.png)
+![Seed 1 checkpoints against the released model](runs/full_seed1/checkpoints_vs_reference.png)
+
 ## What is here
 
 | Path | What it does |
@@ -30,6 +50,7 @@ In November 2026 it trained two full-data copies (seeds 0 and 1) on the 551,578 
 | `launch/` | Start, resume and check runs (`launch.py`), a smoke test (`smoke.sh`), the row lists (`make_lists.py`), the ledger table and training-curve plots. |
 | `removal/test_overlap_parent_ids.txt` | The 34 starting crystals that appear in both the training and the test split; their rows are dropped from the clean test set. |
 | `plan/`, `timing/` | The ledger simulator, run sizing, and measured throughput and memory on H100, A100 40 GB and L40S. |
+| `runs/` | Per-checkpoint validation and test metrics for both copies (with the released model's rows), training curves, and seed 1's run record. |
 | `tests/test_ledger.py` | Unit tests of the ledger; they need no Modal account. |
 
 ## How to run it
