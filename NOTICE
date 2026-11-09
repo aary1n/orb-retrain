@@ -1,0 +1,5 @@
+Retraining Orb-v3 from scratch on Modal
+Copyright 2026 Aaryan Sharif
+
+This product includes code that follows orb-models (https://github.com/orbital-materials/orb-models),
+developed by Orbital Materials and licensed under the Apache License, Version 2.0.

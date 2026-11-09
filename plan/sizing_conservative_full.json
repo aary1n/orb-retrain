@@ -1,0 +1,80 @@
+[
+ {
+  "runs": 9,
+  "label": "3 conditions x 3 seeds",
+  "at_once": 1,
+  "steps_per_run": 62000,
+  "epochs_full_set": 11.240477321430514,
+  "structures_seen_M": 6.2,
+  "hours_per_run": 4.409568780999819,
+  "chunks_per_run": 1,
+  "usd_per_run": 20.358372697948113,
+  "end_total_usd": 184.06535428153305,
+  "wall_hours_all_runs": 39.68611902899837
+ },
+ {
+  "runs": 9,
+  "label": "3 conditions x 3 seeds",
+  "at_once": 2,
+  "steps_per_run": 52000,
+  "epochs_full_set": 9.42749710829656,
+  "structures_seen_M": 5.2,
+  "hours_per_run": 3.7300098384960823,
+  "chunks_per_run": 1,
+  "usd_per_run": 17.24448140219287,
+  "end_total_usd": 156.04033261973586,
+  "wall_hours_all_runs": 18.650049192480413
+ },
+ {
+  "runs": 9,
+  "label": "3 conditions x 3 seeds",
+  "at_once": 3,
+  "steps_per_run": 53000,
+  "epochs_full_set": 9.608795129609955,
+  "structures_seen_M": 5.3,
+  "hours_per_run": 3.7979657327464555,
+  "chunks_per_run": 1,
+  "usd_per_run": 17.555870531768395,
+  "end_total_usd": 158.84283478591553,
+  "wall_hours_all_runs": 11.577230531572699
+ },
+ {
+  "runs": 6,
+  "label": "3 conditions x 2 seeds",
+  "at_once": 1,
+  "steps_per_run": 93000,
+  "epochs_full_set": 16.86071598214577,
+  "structures_seen_M": 9.3,
+  "hours_per_run": 6.582868169428068,
+  "chunks_per_run": 2,
+  "usd_per_run": 30.46965811478936,
+  "end_total_usd": 183.6579486887362,
+  "wall_hours_all_runs": 39.49720901656842
+ },
+ {
+  "runs": 6,
+  "label": "3 conditions x 2 seeds",
+  "at_once": 2,
+  "steps_per_run": 84000,
+  "epochs_full_set": 15.229033790325213,
+  "structures_seen_M": 8.4,
+  "hours_per_run": 5.971265121174706,
+  "chunks_per_run": 2,
+  "usd_per_run": 27.667155948609643,
+  "end_total_usd": 166.84293569165786,
+  "wall_hours_all_runs": 18.00546203019078
+ },
+ {
+  "runs": 6,
+  "label": "3 conditions x 2 seeds",
+  "at_once": 3,
+  "steps_per_run": 82000,
+  "epochs_full_set": 14.866437747698422,
+  "structures_seen_M": 8.2,
+  "hours_per_run": 5.768686666007292,
+  "chunks_per_run": 1,
+  "usd_per_run": 26.586155289458596,
+  "end_total_usd": 160.35693173675156,
+  "wall_hours_all_runs": 11.720706665347915
+ }
+]

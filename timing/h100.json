@@ -1,0 +1,132 @@
+{
+ "gpu_requested": "H100!",
+ "tag": "h100",
+ "steps": 200,
+ "warmup": 10,
+ "batch_size": 100,
+ "num_workers": 7,
+ "torch": "2.6.0+cu124",
+ "started_utc": "2026-11-02T12:43:19Z",
+ "gpu_name": "NVIDIA H100 80GB HBM3",
+ "gpu_mem_gib": 79.171142578125,
+ "copy_to_local_disk": {
+  "seconds": 3.3128538131713867,
+  "bytes": 1572556800,
+  "files": [
+   "/vol/omat24_1M/train/aimd-from-PBE-1000-npt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-1000-nvt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-3000-npt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-3000-nvt/train.aselmdb"
+  ]
+ },
+ "n_structures_indexed": 551578,
+ "index_s": 0.2847170829772949,
+ "loader_only": {
+  "batches": 60,
+  "structures": 6000,
+  "seconds": 2.5772171020507812,
+  "structures_per_s": 2328.0919290984384
+ },
+ "models": {
+  "conservative_full": {
+   "params_all": 25510582,
+   "params_trainable": 25510464,
+   "timed_steps": 200,
+   "wall_s": 48.543037447,
+   "s_per_step": 0.24271518723500002,
+   "data_wait_s_per_step": 0.007410215240000025,
+   "compute_s_per_step": 0.235304971995,
+   "structures": 20000.0,
+   "atoms": 470394.0,
+   "edges": 19304859.0,
+   "structures_per_s": 412.0055326541173,
+   "atoms_per_structure": 23.5197,
+   "edges_per_structure": 965.24295,
+   "peak_gpu_mem_gib": 62.76850128173828,
+   "loss_first": 4.013787746429443,
+   "loss_last": 3.9028244018554688,
+   "nan_seen": false,
+   "eval_structures_per_s": 1038.4043105757553
+  },
+  "conservative_narrow": {
+   "params_all": 6470710,
+   "params_trainable": 6470592,
+   "timed_steps": 200,
+   "wall_s": 28.772971447999907,
+   "s_per_step": 0.14386485723999953,
+   "data_wait_s_per_step": 0.0072332996300001895,
+   "compute_s_per_step": 0.13663155760999934,
+   "structures": 20000.0,
+   "atoms": 466542.0,
+   "edges": 19175713.0,
+   "structures_per_s": 695.0967867932965,
+   "atoms_per_structure": 23.3271,
+   "edges_per_structure": 958.78565,
+   "peak_gpu_mem_gib": 32.04449796676636,
+   "loss_first": 4.025381088256836,
+   "loss_last": 3.9086527824401855,
+   "nan_seen": false,
+   "eval_structures_per_s": 2427.523364810523
+  },
+  "direct_full": {
+   "params_all": 25644479,
+   "params_trainable": 25644361,
+   "timed_steps": 200,
+   "wall_s": 17.24071249900011,
+   "s_per_step": 0.08620356249500055,
+   "data_wait_s_per_step": 0.007335258090000209,
+   "compute_s_per_step": 0.07886830440500034,
+   "structures": 20000.0,
+   "atoms": 472978.0,
+   "edges": 19457139.0,
+   "structures_per_s": 1160.0448648024214,
+   "atoms_per_structure": 23.6489,
+   "edges_per_structure": 972.85695,
+   "peak_gpu_mem_gib": 17.07967233657837,
+   "loss_first": 4.079790115356445,
+   "loss_last": 3.894730806350708,
+   "nan_seen": false,
+   "eval_structures_per_s": 2922.075958714909
+  }
+ },
+ "conservative_full_by_batch": {
+  "25": {
+   "structures_per_s": 256.68486024314376,
+   "s_per_step": 0.0973956935999998,
+   "atoms_per_step": 646.6666666666666,
+   "edges_per_step": 29010.0,
+   "peak_gpu_mem_gib": 17.026111602783203
+  },
+  "50": {
+   "structures_per_s": 328.43191311574924,
+   "s_per_step": 0.15223855540000006,
+   "atoms_per_step": 1374.0,
+   "edges_per_step": 56120.666666666664,
+   "peak_gpu_mem_gib": 30.24213695526123
+  },
+  "100": {
+   "structures_per_s": 437.1013468343471,
+   "s_per_step": 0.22877989446666713,
+   "atoms_per_step": 2279.0,
+   "edges_per_step": 95460.0,
+   "peak_gpu_mem_gib": 49.15566635131836
+  },
+  "150": {
+   "structures_per_s": 486.6128453229411,
+   "s_per_step": 0.30825326836666705,
+   "atoms_per_step": 3394.3333333333335,
+   "edges_per_step": 136509.66666666666,
+   "peak_gpu_mem_gib": 65.8632173538208
+  },
+  "200": {
+   "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 728.00 MiB. GPU 0 has a total capacity of 79.17 GiB of which 298.44 MiB is free. Process 1 has 78.87 GiB memory in use. Of the allocated memory 77.52 GiB is allocated by PyTorch, and 628.98 MiB is reserved by PyTorch but unallocated. If reserve"
+  }
+ },
+ "finished_utc": "2026-11-02T12:45:51Z",
+ "elapsed_s": 158.72117233276367,
+ "_ledger": {
+  "attempt_id": "20261102T124312Z-456f1c08",
+  "booked_usd": 0.35569935839996336,
+  "reserved_usd": 1.9092600000000002
+ }
+}

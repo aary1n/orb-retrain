@@ -1,0 +1,29 @@
+{
+ "source": "https://modal.com/pricing",
+ "read_utc": "2026-11-02T12:13Z",
+ "read_by": "this cloud session's container (curl + HTML parse)",
+ "per_second_usd": {
+  "H100! (Nvidia H100 SXM5)": 0.001097,
+  "A100-40GB (Nvidia A100, 40 GB)": 0.000583,
+  "L40S (Nvidia L40S)": 0.000542,
+  "H200 SXM": 0.001261,
+  "A100, 80 GB": 0.000694,
+  "CPU per physical core": 1.31e-05,
+  "Memory per GiB": 2.22e-06,
+  "CPU non-preemptible per core (not used)": 3.942e-05,
+  "Memory non-preemptible per GiB (not used)": 6.67e-06
+ },
+ "per_hour_usd": {
+  "H100!": 3.9492,
+  "A100-40GB": 2.0988,
+  "L40S": 1.9512,
+  "CPU per core": 0.04716,
+  "Memory per GiB": 0.007992
+ },
+ "check": "H100 per hour = 0.001097 x 3600 = 3.9492, near the brief's $3.95",
+ "other": {
+  "Volumes": "$0.09 per GiB-month (listed on the same page)",
+  "Starter plan": "includes $30 compute per month (FAQ on the page)",
+  "billing rule": "CPU and memory are billed at max(request, usage) (modal.com/docs/guide/resources); this project sets limit = request"
+ }
+}

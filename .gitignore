@@ -1,0 +1,18 @@
+# Never put data, sid lists or checkpoints in git (brief section 7)
+data/
+meta/
+samples/
+removal/sids/
+*.aselmdb
+*.ckpt
+*.pt
+*.npz
+*.tar.gz
+logs/*.json
+__pycache__/
+removal/r2_all_compositions.csv.gz
+removal/adversarial/__pycache__/
+removal/__pycache__/
+plan/__pycache__/
+lists/*.gz
+runs_local/

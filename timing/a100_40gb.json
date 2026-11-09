@@ -1,0 +1,102 @@
+{
+ "gpu_requested": "A100-40GB",
+ "tag": "a100_40gb",
+ "steps": 200,
+ "warmup": 10,
+ "batch_size": 100,
+ "num_workers": 7,
+ "torch": "2.6.0+cu124",
+ "started_utc": "2026-11-02T12:46:31Z",
+ "gpu_name": "NVIDIA A100-SXM4-40GB",
+ "gpu_mem_gib": 39.51531982421875,
+ "copy_to_local_disk": {
+  "seconds": 2.779102325439453,
+  "bytes": 1572556800,
+  "files": [
+   "/vol/omat24_1M/train/aimd-from-PBE-1000-npt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-1000-nvt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-3000-npt/train.aselmdb",
+   "/vol/omat24_1M/train/aimd-from-PBE-3000-nvt/train.aselmdb"
+  ]
+ },
+ "n_structures_indexed": 551578,
+ "index_s": 0.49057698249816895,
+ "loader_only": {
+  "batches": 60,
+  "structures": 6000,
+  "seconds": 4.935782194137573,
+  "structures_per_s": 1215.612151414764
+ },
+ "models": {
+  "conservative_full": {
+   "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 39.52 GiB of which 106.88 MiB is free. Process 1 has 39.40 GiB memory in use. Of the allocated memory 38.73 GiB is allocated by PyTorch, and 175.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)')",
+   "traceback": "Traceback (most recent call last):\n  File \"/root/timing_job.py\", line 122, in run_timing\n    res[\"models\"][name] = _one_model(name, fn, kw, sc, device, it, ds, steps, warmup, left)\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/timing_job.py\", line 204, in _one_model\n    out = model.loss(batch)\n          ^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/orb_models/forcefield/conservative_regressor.py\", line 211, in loss\n    out = self(batch)\n          ^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1739, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py\", line 1750, in _call_impl\n    return forward_call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/orb_models/forcefield/conservative_regressor.py\", line 161, in forward\n    forces, stress, rotational_grad = compute_gradient_forces_and_stress(\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/orb_models/forcefield/forcefield_utils.py\", line 437, in compute_gradient_forces_and_stress\n    grads = torch.autograd.grad(\n            ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/torch/autograd/__init__.py\", line 496, in grad\n    result = _engine_run_backward(\n             ^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.11/site-packages/torch/autograd/graph.py\", line 823, in _engine_run_backward\n    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 400.00 MiB. GPU 0 has a total capacity of 39.52 GiB of which 106.88 MiB is free. Process 1 has 39.40 GiB memory in use. Of the allocated memory 38.73 GiB is allocated by PyTorch, and 175.18 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)\n"
+  },
+  "conservative_narrow": {
+   "params_all": 6470710,
+   "params_trainable": 6470592,
+   "timed_steps": 200,
+   "wall_s": 60.085850957000034,
+   "s_per_step": 0.30042925478500015,
+   "data_wait_s_per_step": 0.01631455582500042,
+   "compute_s_per_step": 0.28411469895999975,
+   "structures": 20000.0,
+   "atoms": 470819.0,
+   "edges": 19308242.0,
+   "structures_per_s": 332.8570650403677,
+   "atoms_per_structure": 23.54095,
+   "edges_per_structure": 965.4121,
+   "peak_gpu_mem_gib": 31.467398166656494,
+   "loss_first": 4.07772159576416,
+   "loss_last": 3.8643553256988525,
+   "nan_seen": false,
+   "eval_structures_per_s": 671.3578276345684
+  },
+  "direct_full": {
+   "params_all": 25644479,
+   "params_trainable": 25644361,
+   "timed_steps": 200,
+   "wall_s": 36.62309005999981,
+   "s_per_step": 0.18311545029999907,
+   "data_wait_s_per_step": 0.015955153359999415,
+   "compute_s_per_step": 0.16716029693999965,
+   "structures": 20000.0,
+   "atoms": 466793.0,
+   "edges": 19196495.0,
+   "structures_per_s": 546.1035638236394,
+   "atoms_per_structure": 23.33965,
+   "edges_per_structure": 959.82475,
+   "peak_gpu_mem_gib": 18.813897609710693,
+   "loss_first": 4.116302490234375,
+   "loss_last": 3.893613815307617,
+   "nan_seen": false,
+   "eval_structures_per_s": 1430.4048819856564
+  }
+ },
+ "conservative_full_by_batch": {
+  "25": {
+   "structures_per_s": 120.03208459541733,
+   "s_per_step": 0.20827764580000027,
+   "atoms_per_step": 646.6666666666666,
+   "edges_per_step": 29010.0,
+   "peak_gpu_mem_gib": 16.977046966552734
+  },
+  "50": {
+   "structures_per_s": 152.22664385651888,
+   "s_per_step": 0.3284576125000001,
+   "atoms_per_step": 1374.0,
+   "edges_per_step": 56120.666666666664,
+   "peak_gpu_mem_gib": 30.19406509399414
+  },
+  "100": {
+   "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 372.00 MiB. GPU 0 has a total capacity of 39.52 GiB of which 188.88 MiB is free. Process 1 has 39.32 GiB memory in use. Of the allocated memory 38.70 GiB is allocated by PyTorch, and 120.21 MiB is reserved by PyTorch but unallocated. If reserve"
+  }
+ },
+ "finished_utc": "2026-11-02T12:49:11Z",
+ "elapsed_s": 169.659907579422,
+ "_ledger": {
+  "attempt_id": "20261102T124621Z-0ef07ba2",
+  "booked_usd": 0.2205059629706764,
+  "reserved_usd": 1.1382599999999998
+ }
+}
